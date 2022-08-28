@@ -1,7 +1,7 @@
 const Cart = () => {
     return (
         <div>
-            <h1>Welcome to THE CART</h1>
+            <h1>SpookieCookie CART</h1>
         </div>
     )
 }
