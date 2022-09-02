@@ -32,7 +32,6 @@ const ItemsCount = () => {
                             <br/>
                             <br/>
                             <p>Stock: {stock}</p>
-                            <p>Counter: {counter}</p>
                         </div>
                     </div>
                 </section>
