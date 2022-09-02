@@ -21,7 +21,7 @@ const Navbar = () => {
                         </li>
                         <li className="nav-item ">
                             {/* <a className="nav-link" href="../pages/nuestrahistoria.js">Nuestra Historia</a> */}
-                            <Nav.Link as={Link} to="/about">Nuestra Historia</Nav.Link>
+                            <Nav.Link as={Link} to="/ItemsCount">Items Count</Nav.Link>
                             {/* <Link className="navbar-brand" to="/about">Nuestra Historia</Link> */}
                         </li>
                         <li className="nav-item ">

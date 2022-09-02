@@ -1,3 +1,5 @@
+import React, {Component, useState} from 'react';
+
 const Products = () => {
     return (
         <div>
@@ -117,15 +119,11 @@ const Products = () => {
                     </div>
                 </section>
                 <br/>
-                <section>
-                    <div>
-                        <button id="AddToCart" className="btn btn-primary">
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </section>
         </div>
     </div>
+
+        
+
     )
 }
 
