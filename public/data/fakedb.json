@@ -1,0 +1,32 @@
+{
+    "chamarras": [
+        {
+            "id": 0,
+            "title": "LilaLove",
+            "description": "Chamarra color lila que te acompañará a correr por las mañanas",
+            "price": 250,
+            "pictureUrl": "../image/example1.jpg"
+        },
+        {
+            "id": 2,
+            "title": "GreenGorgeous",
+            "description": "Chamarra color verde que te hace ver muy eco",
+            "price": 200,
+            "pictureUrl": "../image/example2.jpg"
+        },
+        {
+            "id": 2,
+            "title": "BlueBallerina",
+            "description": "Chamarra color azul cielo para recordarte lo bonito que son los días",
+            "price": 350,
+            "pictureUrl": "../image/example4.jpg"
+        },
+        {
+            "id": 3,
+            "title": "PinkPanter",
+            "description": "Chamarra color rosa que te recuerda que la vida es bella",
+            "price": 300,
+            "pictureUrl": "../image/example3.jpg"
+        }
+    ]
+}
