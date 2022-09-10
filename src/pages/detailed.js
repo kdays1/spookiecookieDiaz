@@ -1,35 +1,16 @@
 import React, { Component, useEffect, useState } from "react"
 import './styles.css'
+import { useParams } from 'react-router-dom'
 
-const Detailed = () => {
+const Detailed = ({details}) => {
+    const {itemId} = useParams ();
 
-    const [details, setDetails] = useState([]);
-    const getDetails = async() => {
-        fetch('data/fakeDetails.json', {
-            headers : {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-        .then(function(response) {
-            console.log(response)
-            return response.json();
-        })
-        .then(function(dataInJson) {
-            const items = dataInJson.chamarras;
-            setDetails(items);
-        })
-    }
-
-    useEffect(()=>{
-        setTimeout(() => {getDetails();},2000);
-    },[])
 
     return (
         <section>
             <div className="container">
                 <section className="d-flex flex-wrap justify-content-around align-items-center">
-                    {(details).map((key, item) => <div className="card" key={item}> 
+                    {details.filter((list) => list.id === itemId).map((key, item) => <div className="card" key={item}> 
                     <div className="card-body">
                             <h2 className="card-text text-small">{key.title}</h2>
                             <div className="d-flex flex-wrap justify-content-around align-items-center">
@@ -49,7 +30,7 @@ const Detailed = () => {
                             {/* <p>Stock: {stock}</p> */}
                         </div>
                     
-                    </div>)[0]}
+                    </div>)}
                 </section>
         </div>
     </section>

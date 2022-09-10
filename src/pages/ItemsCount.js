@@ -1,28 +1,9 @@
-import React, { Component, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { Component, useEffect, useState } from "react"
+import { useParams } from 'react-router-dom'
 
-const ItemsCount = () => {
-    //LOGICA ITEMS DISPLAY
-    const [data, setData] = useState([]);
-    const getDB = async()=> {
-        fetch('data/fakeDB.json', {
-            headers : {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
-        }) 
-        .then (function(response) {
-            console.log(response)
-            return response.json();
-        })
-        .then(function(dataInJson) {
-            const items = dataInJson.chamarras;
-            setData(items);
-        })    
-    } 
-    useEffect(()=>{
-        setTimeout(() => {getDB();},2000);
-    },[])
+
+const ItemsCount = ({data}) => {
+    const {categoryId} = useParams ();
 
     //LOGICA CONTADOR
     const[counter, setCount] = useState(0);
@@ -54,22 +35,12 @@ const ItemsCount = () => {
     };
 
     //LOGICA REDIRECT
-    let navigate = useNavigate(); 
-    const redirect = (itemId) =>{ 
-        let path = '/detailed/' + itemId; 
-        navigate(path);
-    }
+
 
     return (
-        <section>
-            <h1>Productos</h1>
-                <br/>
-                <h3 className="text">Chamarras para llenar tu vida de magia y amor</h3>
-                <br/>
                 <section className="d-flex flex-wrap justify-content-around align-items-center">
-                    {/* <div className="card"> */}
-                    {(data).map((key, item) => <div className="card" key={item}>  
-                    <button className="colored" onClick={() => redirect(item)}><img className="card-img-top colors mx-auto d-block" src={key.pictureUrl} alt="chamarra"/></button>
+                    {data.filter((list) => list.categoryId === categoryId).map((key) => <div className="card" key={key.id}>  
+                    <button className="colored"><img className="card-img-top colors mx-auto d-block" src={key.pictureUrl} alt="chamarra"/></button>
                     <div className="card-body">
                             <p className="card-text text-small">{key.title}</p>
                             <button onClick={() => ItemCount("subs", counter)}> - </button>
@@ -89,7 +60,6 @@ const ItemsCount = () => {
                     
                     </div>)}
                 </section>
-        </section>
     )
 }
 

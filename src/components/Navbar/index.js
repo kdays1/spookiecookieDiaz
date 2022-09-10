@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaShoppingCart } from 'react-icons/fa';
+
 
 const Navbar = () => {
     return (
@@ -15,10 +16,13 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item ">
-                            <Nav.Link as={Link} to="/ItemsCount">Productos</Nav.Link>
+                            <Nav.Link as={Link} to={'/ItemsCount'}>Productos</Nav.Link>
                         </li>
                         <li className="nav-item ">
-                            <Nav.Link as={Link} to="/howtobuy">Cómo comprar</Nav.Link>
+                            <Nav.Link as={Link} to='/ItemsCount/01'>Chamarras</Nav.Link>
+                        </li>
+                        <li className="nav-item ">
+                            <Nav.Link as={Link} to="/ItemsCount/02">Gorritos</Nav.Link>
                         </li>
                         <li className="nav-item ">
                             <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>

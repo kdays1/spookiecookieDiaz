@@ -41,7 +41,7 @@
             "title": "LilaLaugh",
             "description": "Gorrito color lila que te acompañará a correr por las mañanas",
             "price": 250,
-            "pictureUrl": "../image/glila1.jpg",
+            "pictureUrl": "../image/example1.jpg",
             "category": "gorritos",
             "categoryId": "02"
         },
@@ -50,7 +50,7 @@
             "title": "GreenGeek",
             "description": "Gorrito color verde que te hace ver muy eco",
             "price": 200,
-            "pictureUrl": "../image/gverde1.jpg",
+            "pictureUrl": "../image/example2.jpg",
             "category": "gorritos",
             "categoryId": "02"
         },
@@ -59,7 +59,7 @@
             "title": "BlueBallad",
             "description": "Gorrito color azul cielo para recordarte lo bonito que son los días",
             "price": 350,
-            "pictureUrl": "../image/gazul1.jpg",
+            "pictureUrl": "../image/example4.jpg",
             "category": "gorritos",
             "categoryId": "02"
         },
@@ -68,7 +68,7 @@
             "title": "PinkPilot",
             "description": "Gorrito color rosa que te recuerda que la vida es bella",
             "price": 300,
-            "pictureUrl": "../image/grosa1.jpg",
+            "pictureUrl": "../image/example3.jpg",
             "category": "gorritos",
             "categoryId": "02"
         }
