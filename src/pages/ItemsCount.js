@@ -1,4 +1,5 @@
-import React, { Component, useEffect, useState } from "react"
+import React, { Component, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ItemsCount = () => {
     //LOGICA ITEMS DISPLAY
@@ -25,8 +26,16 @@ const ItemsCount = () => {
 
     //LOGICA CONTADOR
     const[counter, setCount] = useState(0);
+    const[counter2, setCount2] = useState(0);
+    const[counter3, setCount3] = useState(0);
+    const[counter4, setCount4] = useState(0);
     // const valuechange = (e) => setCount(e.target.counter);
-    const[stock, setStock] = useState(10); 
+    const[stock, setStock] = useState(10);
+    const[stock1, setStock1] = useState(10);
+    const[stock2, setStock2] = useState(10);
+    const[stock3, setStock3] = useState(10);
+    const[stock4, setStock4] = useState(10);
+
     function ItemCount(operation) {
             if (operation == "add" && stock>0) {
                 setCount (counter + 1);
@@ -44,6 +53,12 @@ const ItemsCount = () => {
         setShowDetails(current => !current);
     };
 
+    //LOGICA REDIRECT
+    let navigate = useNavigate(); 
+    const redirect = (itemId) =>{ 
+        let path = '/detailed/' + itemId; 
+        navigate(path);
+    }
 
     return (
         <section>
@@ -54,7 +69,7 @@ const ItemsCount = () => {
                 <section className="d-flex flex-wrap justify-content-around align-items-center">
                     {/* <div className="card"> */}
                     {(data).map((key, item) => <div className="card" key={item}>  
-                    <button id="colorSerenity" className="colored"><img className="card-img-top colors mx-auto d-block" src={key.pictureUrl} alt="chamarra"/></button>
+                    <button className="colored" onClick={() => redirect(item)}><img className="card-img-top colors mx-auto d-block" src={key.pictureUrl} alt="chamarra"/></button>
                     <div className="card-body">
                             <p className="card-text text-small">{key.title}</p>
                             <button onClick={() => ItemCount("subs", counter)}> - </button>
@@ -63,7 +78,9 @@ const ItemsCount = () => {
                             <p>Precio: ${key.price}</p>
                             <button onClick={() => Details()}> Detalles </button>
                             {showDetails && (
-                                <p>{key.description}</p>
+                                <section>
+                                    <p>{key.description}</p>
+                                </section>
                             )}
                             <br/>
                             <br/>
@@ -71,18 +88,6 @@ const ItemsCount = () => {
                         </div>
                     
                     </div>)}
-
-                        {/* <button id="colorSerenity" className="colored"><img className="card-img-top colors mx-auto d-block" src={require('../image/example1.jpg')} alt="chamarra"/></button>
-                        <div className="card-body">
-                            <p className="card-text text-small">Chamarra LilaLove</p>
-                            <button onClick={() => ItemCount("subs", counter)}> - </button>
-                            <input type="text" value={counter}/>
-                            <button onClick={() => ItemCount("add", counter)}> + </button>
-                            <br/>
-                            <br/>
-                            <p>Stock: {stock}</p>
-                        </div> */}
-                    {/* </div> */}
                 </section>
         </section>
     )

@@ -1,14 +1,15 @@
+import './styles.css'
+
 const Home = () => {
     return (
         <div>
             <section className="container"> 
-                <h1>Spookie Cookie</h1> 
-        <div className="container">
+        <div className="container ">
 
-            <img className="spookie" src={window.location.origin + '../image/spookie.jpg/'}/>
-            <img className="cookie1" src={window.location.origin + '../image/cookie.jpg/'}/>
-            <img className="cookie2" src={window.location.origin + '../image/cookie2.jpg/'}/>
-            <img className="cookie3" src={window.location.origin + '../image/cookie3.jpg/'}/>
+            <img className="pic" src={'../image/example1.jpg'}/>
+            <img className="pic" src={'../image/example2.jpg'}/>
+            <img className="pic" src={'../image/example3.jpg'}/>
+            <img className="pic" src={'../image/example4.jpg'}/>
 
         </div>
         <p className="text">
@@ -18,7 +19,7 @@ const Home = () => {
 
     <section className="container d-flex flex-md-row flex-lg-row flex-sm-column flex-column justify-content-center align-items-center">
         <div className="inspo_img d-flex justify-content-center">
-            <img className="inspo__img mx-auto d-block" src={window.location.origin + '../image/inpiracionyou2.jpg'}/>
+            <img className="inspo__img mx-auto d-block" src={'../image/inpiracionyou2.jpg'}/>
             </div>
             <div className="inspo__text text">
                 <h2>Nuestra Inspiración</h2>
@@ -28,21 +29,21 @@ const Home = () => {
             </div>
     </section>
 
-    <section className="prod__muestra container-fluid d-flex flex-row flex-wrap justify-content-center">
-        <img className="prod__muestra_img" src={window.location.origin + '../image/example1.jpg/'}/> 
-        <img className="prod__muestra_img" src={window.location.origin + '../image/example2.jpg/'}/>
-        <img className="prod__muestra_img" src={window.location.origin + '../image/example3.jpg/'}/>
-        <img className="prod__muestra_img" src={window.location.origin + '../image/example4.jpg/'}/>
+    <section className="container-fluid d-flex flex-row flex-wrap justify-content-center">
+        <img className="pic" src={'../image/example1.jpg'}/> 
+        <img className="pic" src={'../image/example2.jpg'}/>
+        <img className="pic" src={'../image/example3.jpg'}/>
+        <img className="pic" src={'../image/example4.jpg'}/>
     </section>
 
     <footer className="bg-light text-center text-white footer">
         <div className="p-4 pb-0">
             <section>
                 <a className="btn btn-floating m-1" href="https://www.facebook.com" role="button"> 
-                    <img className="img-thumbnail footer__thumbnail" src={window.location.origin + '../image/fb.jpg/'}/>
+                    <img className="img-thumbnail footer__thumbnail" src={'../image/fb.jpg'}/>
                 </a>
                 <a className="btn btn-floating m-1" href="https://www.instagram.com" role="button">
-                    <img className="img-thumbnail footer__thumbnail" src={window.location.origin + '../image/ig.jpg/'}/>
+                    <img className="img-thumbnail footer__thumbnail" src={'../image/ig.jpg'}/>
                 </a>
             </section>
         </div>
