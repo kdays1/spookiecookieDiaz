@@ -1,7 +1,7 @@
 {
     "productos": [
         {
-            "id": 0,
+            "number": 0,
             "title": "LilaLove",
             "description": "Chamarra color lila que te acompañará a correr por las mañanas",
             "price": 250,
@@ -10,7 +10,7 @@
             "categoryId" : "01"
         },
         {
-            "id": 1,
+            "number": 1,
             "title": "GreenGorgeous",
             "description": "Chamarra color verde que te hace ver muy eco",
             "price": 200,
@@ -19,7 +19,7 @@
             "categoryId" : "01"
         },
         {
-            "id": 2,
+            "number": 2,
             "title": "BlueBallerina",
             "description": "Chamarra color azul cielo para recordarte lo bonito que son los días",
             "price": 350,
@@ -28,7 +28,7 @@
             "categoryId" : "01"
         },
         {
-            "id": 3,
+            "number": 3,
             "title": "PinkPanter",
             "description": "Chamarra color rosa que te recuerda que la vida es bella",
             "price": 300,
@@ -37,7 +37,7 @@
             "categoryId" : "01"
         },
         {
-            "id": 4,
+            "number": 4,
             "title": "LilaLaugh",
             "description": "Gorrito color lila que te acompañará a correr por las mañanas",
             "price": 250,
@@ -46,7 +46,7 @@
             "categoryId": "02"
         },
         {
-            "id": 5,
+            "number": 5,
             "title": "GreenGeek",
             "description": "Gorrito color verde que te hace ver muy eco",
             "price": 200,
@@ -55,7 +55,7 @@
             "categoryId": "02"
         },
         {
-            "id": 6,
+            "number": 6,
             "title": "BlueBallad",
             "description": "Gorrito color azul cielo para recordarte lo bonito que son los días",
             "price": 350,
@@ -64,7 +64,7 @@
             "categoryId": "02"
         },
         {
-            "id": 7,
+            "number": 7,
             "title": "PinkPilot",
             "description": "Gorrito color rosa que te recuerda que la vida es bella",
             "price": 300,

@@ -3,17 +3,15 @@ const Cart = () => {
         <div>
             <div>
                 <h1>SpookieCookie CART</h1>
+                <h3>Estos son tus productos :</h3>
             </div>
             <div>
                 <ul>
                     <li>
-                        Chamarra 1 
+                        Producto 1 
                     </li>
                     <li>
-                        Chamarra 2
-                    </li>
-                    <li>
-                        Chamarra 3
+                        Producto 2
                     </li>
                 </ul>
             </div>

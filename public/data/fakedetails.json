@@ -1,5 +1,5 @@
 {
-    "chamarras": [
+    "productos": [
         {
             "id": 0,
             "title": "LilaLove",
@@ -9,10 +9,10 @@
             "pictureUrl2": "../image/lila2.jpg",
             "pictureUrl3": "../image/lila3.jpg",
             "pictureUrl4": "../image/lila4.jpg",
-            "availableSizes": {"CH":5, "M":6, "G":7}
+            "availableSizes": 10
         },
         {
-            "id": 2,
+            "id": 1,
             "title": "GreenGorgeous",
             "description": "Chamarra color verde que te hace ver muy eco",
             "price": 200,
@@ -20,7 +20,7 @@
             "pictureUrl2": "../image/verde2.jpg",
             "pictureUrl3": "../image/verde3.jpg",
             "pictureUrl4": "../image/verde4.jpg",
-            "availableSizes": {"CH":5, "M":6, "G":7}
+            "availableSizes": 10
         },
         {
             "id": 2,
@@ -31,7 +31,7 @@
             "pictureUrl2": "../image/azul2.jpg",
             "pictureUrl3": "../image/azul3.jpg",
             "pictureUrl4": "../image/azul4.jpg",
-            "availableSizes": {"CH":5, "M":6, "G":7}
+            "availableSizes": 10
         },
         {
             "id": 3,
@@ -42,7 +42,51 @@
             "pictureUrl2": "../image/rosa2.jpg",
             "pictureUrl3": "../image/rosa3.jpg",
             "pictureUrl4": "../image/rosa4.jpg",
-            "availableSizes": {"CH":5, "M":6, "G":7}
+            "availableSizes": 10
+        },
+        {
+            "id": 4,
+            "title": "LilaLaugh",
+            "description": "Gorrito color lila que te acompañará a correr por las mañanas",
+            "price": 250,
+            "pictureUrl1": "../image/glila1.jpg",
+            "pictureUrl2": "../image/glila1.jpg",
+            "pictureUrl3": "../image/glila1.jpg",
+            "pictureUrl4": "../image/glila1.jpg",
+            "availableSizes": 10
+        },
+        {
+            "id": 5,
+            "title": "GreenGeek",
+            "description": "Gorrito color verde que te hace ver muy eco",
+            "price": 200,
+            "pictureUrl1": "../image/gverde1.jpg",
+            "pictureUrl2": "../image/gverde1.jpg",
+            "pictureUrl3": "../image/gverde1.jpg",
+            "pictureUrl4": "../image/gverde1.jpg",
+            "availableSizes": 10
+        },
+        {
+            "id": 6,
+            "title": "BlueBallad",
+            "description": "Gorrito color azul cielo para recordarte lo bonito que son los días",
+            "price": 350,
+            "pictureUrl1": "../image/gazul1.jpg",
+            "pictureUrl2": "../image/gazul1.jpg",
+            "pictureUrl3": "../image/gazul1.jpg",
+            "pictureUrl4": "../image/gazul1.jpg",
+            "availableSizes": 10
+        },
+        {
+            "id": 7,
+            "title": "PinkPilot",
+            "description": "Gorrito color rosa que te recuerda que la vida es bella",
+            "price": 300,
+            "pictureUrl1": "../image/grosa1.jpg",
+            "pictureUrl2": "../image/grosa1.jpg",
+            "pictureUrl3": "../image/grosa1.jpg",
+            "pictureUrl4": "../image/grosa1.jpg",
+            "availableSizes": 10
         }
     ]
 }
