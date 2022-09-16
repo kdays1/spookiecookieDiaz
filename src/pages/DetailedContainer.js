@@ -1,13 +1,16 @@
 import React, { Component, useEffect, useState } from "react"
-
-const DetailedContainer = ({details}) => {
+import Detailed from "./detailed"
+import { CartProvider} from "../context/cartContext"
+const DetailedContainer = () => {
 
     return (
         <section>
-            <h1>Productos</h1>
                 <br/>
                 <h3 className="text">Ropa para llenar tu vida de magia y amor</h3>
                 <br/>
+                <CartProvider>
+                <Detailed/>
+                </CartProvider>
         </section>
     )
 }

@@ -1,31 +1,52 @@
-import React, { Component, useEffect, useState } from "react"
+import React, { Component, useContext, useEffect, useState } from "react"
 import './styles.css'
 import { useParams, Link } from 'react-router-dom'
 import CounterContainer from './countercontainer'
+import { useCart } from "../context/cartContext"
+import { CartProvider} from "../context/cartContext"
 
-const Detailed = ({details}) => {
-    const {itemId} = useParams ();
+function Detailed () {
+
+    const {itemId} = useParams ()
+    const {cart} = useCart()
+    const { addItem } = useCart()
+
+    const [details, setDetails] = useState([]);
+    const getDetails = async() => {
+        fetch('/data/fakeDetails.json', {
+            headers : {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(function(response) {
+            console.log(response)
+            return response.json();
+        })
+        .then(function(dataInJson) {
+            const items2 = dataInJson.productos;
+            console.log(items2);
+            setDetails(items2);
+        })
+    }
+
+    useEffect(()=>{
+        getDetails();
+    },[])
+
+
+        //LOGICA AGREGAR CARRITO
+        function AddtoCart (itemid) 
+        {
+            addItem(itemid);
+        }
 
     //LOGICA CONTADOR
     const initialStock = details.filter((list) => list.title === itemId);
     const[counter, setCount] = useState(0);
-    // const[stock, setStock] = useState(initialStock.availableSizes);
     const[stock, setStock] = useState(10);
     const[goBack, setgoBack] = useState(0);
 
-    // function ItemCount(operation, firststock) {
-    //         // if(stock == 0 && counter == 1){
-    //         //     setStock(firststock-1);
-    //         // }
-    //         if (operation == "add" && stock>0) {
-    //             setCount (counter + 1);
-    //             setStock (stock - 1);
-    //         } else if (operation == "subs" && counter>1) {
-    //             setCount (counter - 1);
-    //             setStock (stock + 1);
-    //         }
-
-    // }
     const ItemCount = (ops) => {
         if(stock == 0){
             setgoBack(1);
@@ -44,6 +65,7 @@ const Detailed = ({details}) => {
 
     return (
         <section>
+            <CartProvider>
             <div className="container">
                 <section className="d-flex flex-wrap justify-content-around align-items-center">
                     {details.filter((list) => list.title === itemId).map((key) => <div className="card" key={key.title}>
@@ -60,14 +82,18 @@ const Detailed = ({details}) => {
                                 <CounterContainer details={details} ItemCount={ItemCount} counter={counter} stock={stock}/>
                                 </div>) :
                                 (<div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
-                                    <Link to={'/cart'}><button>Finalizar Compra</button></Link>   
+                                    {/* <Link to={'/cart'}><button onClick={() => AddtoCart(key.title)}>Agregar al carrito</button></Link>    */}
+                                    <button onClick={() => AddtoCart(key.title)}>Agregar al carrito</button>
                                     <button onClick={() => setgoBack(0)}>Continuar Comprando</button>
                                 </div>)
                             }
+
+                            <strong>CARRITO: </strong> {cart}
                         </div>
                     </div>)}
                 </section>
-        </div>
+            </div>
+            </CartProvider>
     </section>
 
 
