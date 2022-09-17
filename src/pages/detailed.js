@@ -9,6 +9,7 @@ function Detailed () {
 
     const {itemId} = useParams ()
     const {cart} = useCart()
+    const {quantity} = useCart()
     const { addItem } = useCart()
 
     const [details, setDetails] = useState([]);
@@ -36,9 +37,9 @@ function Detailed () {
 
 
         //LOGICA AGREGAR CARRITO
-        function AddtoCart (itemid) 
+        function AddtoCart (itemid, counter) 
         {
-            addItem(itemid);
+            addItem(itemid, counter);
         }
 
     //LOGICA CONTADOR
@@ -65,7 +66,6 @@ function Detailed () {
 
     return (
         <section>
-            <CartProvider>
             <div className="container">
                 <section className="d-flex flex-wrap justify-content-around align-items-center">
                     {details.filter((list) => list.title === itemId).map((key) => <div className="card" key={key.title}>
@@ -83,17 +83,16 @@ function Detailed () {
                                 </div>) :
                                 (<div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
                                     {/* <Link to={'/cart'}><button onClick={() => AddtoCart(key.title)}>Agregar al carrito</button></Link>    */}
-                                    <button onClick={() => AddtoCart(key.title)}>Agregar al carrito</button>
+                                    <button onClick={() => AddtoCart(key.title, counter)}>Agregar al carrito</button>
                                     <button onClick={() => setgoBack(0)}>Continuar Comprando</button>
                                 </div>)
                             }
 
-                            <strong>CARRITO: </strong> {cart}
+                            <strong>CARRITO: </strong> {cart} <strong> CANTIDAD:</strong> {quantity}
                         </div>
                     </div>)}
                 </section>
             </div>
-            </CartProvider>
     </section>
 
 

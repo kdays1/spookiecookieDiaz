@@ -12,22 +12,24 @@ import Detailed from "./pages/detailed";
 import CartContainer from './pages/cartContainer';
 import ItemsCountContainer from './pages/ItemsCountContainer';
 import ItemsCount from "./pages/ItemsCount";
-import { CartContext } from "./context/cartContext";
+import { CartProvider } from "./context/cartContext";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
+  <CartProvider>
+    <BrowserRouter>
     <App />
     <Routes>
-  <Route path='/' exact element={<Home/>} />
-  <Route exact path='/ItemsCount' element={<ItemsCountContainer/>} />
-  <Route exact path='/detailed' element={<DetailedContainer/>} />
-  <Route path='/detailed/:itemId' element={<Detailed/>} />
-  <Route path='/ItemsCount/:categoryId' element={<ItemsCount  />} />
-  <Route path='/contact' element={<Contact/>} />
-  <Route path='/cart' element={<CartContainer/>} />
-</Routes>
+      <Route path='/' exact element={<Home/>} />
+      <Route exact path='/ItemsCount' element={<ItemsCountContainer/>} />
+      <Route exact path='/detailed' element={<DetailedContainer/>} />
+      <Route path='/detailed/:itemId' element={<Detailed/>} />
+      <Route path='/ItemsCount/:categoryId' element={<ItemsCount  />} />
+      <Route path='/contact' element={<Contact/>} />
+      <Route path='/cart' element={<CartContainer/>} />
+    </Routes>
   </BrowserRouter>
+  </CartProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
