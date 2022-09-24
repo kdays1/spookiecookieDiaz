@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom'
 import CounterContainer from './countercontainer'
 import { useCart } from "../context/cartContext"
 import {collection, getDocs, getFirestore, query, where} from "firebase/firestore";
+import { useLocation } from 'react-router-dom'
 import { CartProvider} from "../context/cartContext"
 
 function Detailed () {
@@ -43,6 +44,13 @@ function Detailed () {
             setProduct(test[0]);
     })
     }
+
+    const location = useLocation() 
+    useEffect(() => {
+            console.log('Location changed');
+            chargingDB();
+    },[location]) 
+
 
         //LOGICA AGREGAR CARRITO
         function AddtoCart (itemid, counter) 
