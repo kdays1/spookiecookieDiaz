@@ -98,12 +98,12 @@ function Detailed () {
                                 </div>) :
                                 (<div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
                                     {/* <Link to={'/cart'}><button onClick={() => AddtoCart(key.title)}>Agregar al carrito</button></Link>    */}
-                                    <button onClick={() => AddtoCart(product.title, counter)}>Agregar al carrito</button>
+                                    <button onClick={() => AddtoCart(product, counter)}>Agregar al carrito</button>
                                     <button onClick={() => setgoBack(0)}>Continuar Comprando</button>
                                 </div>)
                             }
 
-                            <strong>CARRITO: </strong> {cart} <strong> CANTIDAD:</strong> {quantity}
+                            {/* <strong>CARRITO: </strong> {cart} <strong> CANTIDAD:</strong> {quantity} */}
                         </div>
                     </div>
                 </section>

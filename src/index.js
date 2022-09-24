@@ -9,7 +9,7 @@ import Home from './pages/home'
 import Contact from './pages/contact';
 import DetailedContainer from './pages/DetailedContainer';
 import Detailed from "./pages/detailed";
-import CartContainer from './pages/cartContainer';
+import CartContainer from './pages/CartContainer';
 import ItemsCountContainer from './pages/ItemsCountContainer';
 import ItemsCount from "./pages/ItemsCount";
 import { CartProvider } from "./context/cartContext";

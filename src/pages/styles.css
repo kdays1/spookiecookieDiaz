@@ -22,6 +22,14 @@
     width: 25px;
     height: 25px;
 }
+.rectangle-up{
+    width: 240px;
+    height: 315px;
+}
+.rectangle{
+    width: 240px;
+    text-align: center;
+}
 /* .flex-column{
     display: flex;
     flex-direction: column;

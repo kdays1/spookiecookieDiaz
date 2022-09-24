@@ -10,6 +10,7 @@ const CartProvider =  ( {defaultValue = [], children} ) => {
 
     const [cart, setCart] = useState(defaultValue)
     const [quantity, setQuantity] = useState(defaultValue)
+    const [total, setTotal] = useState(0)
 
     const addItem = (itemid, amount) => {
             // const newCart = Object.assign({}, cart);
@@ -33,30 +34,31 @@ const CartProvider =  ( {defaultValue = [], children} ) => {
             // })
             console.log(cart.length);
             if (cart.length == 0){
+                itemid.quantity = amount;
                 const newCart = cart.slice();
                     newCart.push(itemid);
                     setCart(newCart);
-                    const newQuantity = quantity.slice();
-                    newQuantity.push(amount);
-                    setQuantity(newQuantity);
+                    // const newQuantity = quantity.slice();
+                    // newQuantity.push(amount);
+                    // setQuantity(newQuantity);
+                    setTotal(itemid.price * amount);
             }else {
                 for (var i=0;i<cart.length;i++){
-                    if(cart[i]!=itemid){
-                        const newCart = cart.slice();
-                        newCart.push(itemid);
-                        setCart(newCart);
-                        const newQuantity = quantity.slice();
-                        newQuantity.push(amount);
-                        setQuantity(newQuantity);
-                    } else {
-                        const modifyQuantity = quantity.slice();
-                        const tomodify = modifyQuantity[i];
-                        modifyQuantity[i] = tomodify + amount;
-                        setQuantity(modifyQuantity);
-                    }
+                    if(cart[i].title==itemid.title){
+                        var actualAmount = cart[i].quantity;
+                        cart[i].quantity = actualAmount + amount;
+                        var repetido = true;
+                    } 
                 }
-    
+                if (!repetido) {
+                    itemid.quantity = amount;
+                    const newCart = cart.slice();
+                    newCart.push(itemid);
+                    setCart(newCart);
+                }
+                setTotal(total + (itemid.price * amount) );
             }
+            
             
     }
 
@@ -70,6 +72,7 @@ const CartProvider =  ( {defaultValue = [], children} ) => {
     const context = {
         cart, 
         quantity,
+        total,
         addItem,
         clearCart,
         deleteItem
