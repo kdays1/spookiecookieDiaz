@@ -1,54 +1,73 @@
 import React, { useEffect, useState } from 'react';
 import cartITems from './cartITems'
+import BuyForm from './BuyForm'
 import { useCart } from "../context/cartContext"
 import { Link } from 'react-router-dom'
 import './styles.css'
+import { addDoc, doc, collection, getFirestore, updateDoc, update, set} from "firebase/firestore"
 
 const CartContainer = () => {
-
     //Context
     const {cart} = useCart()
-    const {quantity} = useCart()
     const { deleteItem } = useCart()
     const {clearCart} = useCart()
     const {total} = useCart()
 
-    // //Products
-    // const [products, setProducts] = useState([]);
-    // const [buyProducts, setBuyProducts] = useState();
+    const [actualUser, setActualUser] = useState('')
 
-    // useEffect(()=>{
-    //     chargingDB();
-    //     listToBuy();
-    // },[]);
+    const [id, setOrderId] = useState();
+    const [isBuying, setIsBuying] = useState(false);
+    const [alreadyBuy, setalreadyBuy] = useState(false);
+
+    const sendOrder = (user, number, mail) => {
+        setActualUser(user)
+        var buyItems = [];
+        var client = [];
+        // const order = {};
+        for (var i=0; i<cart.length; i++) {
+            var newproduct = {product: cart[i].title, price: cart[i].price, quantity: cart[i].quantity};
+            buyItems.push(newproduct);
+        }
+        client.push({name: user, phone: number, email: mail})
+        const order = {
+            client : client,
+            items : buyItems,
+            total: total
+        };
+        const db = getFirestore();
+        const ordersCollection = collection(db, "theorders");
+        addDoc(ordersCollection, order).then(({ id }) => setOrderId(id));
+        setalreadyBuy(true);
+    }
+
+    const toBuy = () => {
+        setIsBuying(true);
+    }
     
-    // const chargingDB = () => {
-    //     const db = getFirestore();
-    //     const productsCollection = collection(db, "productos");
-    //     getDocs(productsCollection).then((snapshot) => {
-    //         const test = snapshot.docs.map((doc) => ({...doc.data()})); 
-    //         setProducts(test);
-    //         console.log(test);
-    // })
-    // }
-
-    // const listToBuy = () => {
-    //     for (var i=0;i<products.length;i++) {
-    //         for(var k=0;k<cart.length;k++){
-    //             if (products[i].title == cart[k]) {
-    //                 if (buyProducts.length == 0) {
-    //                     const newList = buyProducts.slice();
-    //                     newList.push()
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     // const newList = products.filter(b => b.title === cart.includes(b.title));
-    //     console.log(newList);
-    // }
+    const updateOrder = (object) => {
+        var newBuyItems = [];
+        const db = getFirestore();
+        const orderDoc = doc(db, "orders", id);
+        // orderDoc.collection("items")
+        for (var i=0; i<cart.length; i++) {
+            var newproduct = {product: cart[i].title, price: cart[i].price, quantity: cart[i].quantity};
+            newBuyItems.push(newproduct);
+        }
+        const order = {
+            items : newBuyItems,
+            total: total
+        };
+        // orderDoc.set(order).then(() => console.log('order updated'))
+        // orderDoc.update(order);
+        updateDoc(orderDoc, order);
+    }
 
     function RemoveFromCart (productDel) {
         deleteItem(productDel);
+    }
+
+    function RemoveAllCart () {
+        clearCart();
     }
 
     return (
@@ -59,7 +78,7 @@ const CartContainer = () => {
                     <Link to={'/ItemsCount'}>Visita la página de productos</Link>
                 </div>
             )}
-            {cart.length != 0 && (
+            {cart.length != 0 && !isBuying && (
                 <section>
                     <h3>Estos son tus productos : </h3>
                 <table>
@@ -97,11 +116,36 @@ const CartContainer = () => {
                     </th>)}
                 </tr> */}
                 <tr>
-                <p className="card rectangle"> <strong>Total a pagar : $ {total} </strong></p>
+                    <br/></tr>
+                <tr>
+                    <th>
+                        <p className="card rectangle"> <strong>Total a pagar : $ {total} </strong></p>
+                    </th>
+                    <th>
+                        <button onClick={() => toBuy()}>Comprar</button>
+                    </th>
+                    <th>
+                        {/* <button onClick={() => updateOrder(cart)}>Actualizar Compra</button> */}
+                    </th>
+                </tr>
+                <tr><br/></tr>
+                <tr>
+                    <button onClick={() => RemoveAllCart()}>Eliminar Todo</button>
                 </tr>
             </table>
+
+            {/* <BuyForm sendOrder={sendOrder}/> */}
+
                 </section>
             )}
+            { isBuying && !alreadyBuy && <BuyForm sendOrder={sendOrder}/>}
+            {alreadyBuy &&
+            <section>
+                Gracias por comprar con nosotros, {actualUser}
+                <br/>
+                Tu número de orden es: {id}
+            </section>
+            }
         </section>
     )
 }

@@ -30,6 +30,9 @@
     width: 240px;
     text-align: center;
 }
+tr {
+    text-align: center;
+}
 /* .flex-column{
     display: flex;
     flex-direction: column;

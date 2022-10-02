@@ -92,14 +92,14 @@ function Detailed () {
                             <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl} alt="Producto de SpookieCookie"/></button>
                             <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl} alt="Producto de SpookieCookie"/></button>
                             </div>
-                            {1 >= counter <= 10 && goBack == 0 ? (
+                            
                                 <div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
                                 <CounterContainer product={product} ItemCount={ItemCount} counter={counter} stock={stock}/>
-                                </div>) :
-                                (<div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
+                                </div>
+                            {counter >=1 && (<div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
                                     {/* <Link to={'/cart'}><button onClick={() => AddtoCart(key.title)}>Agregar al carrito</button></Link>    */}
                                     <button onClick={() => AddtoCart(product, counter)}>Agregar al carrito</button>
-                                    <button onClick={() => setgoBack(0)}>Continuar Comprando</button>
+                                    {/* <button onClick={() => setgoBack(0)}>Continuar Comprando</button> */}
                                 </div>)
                             }
 

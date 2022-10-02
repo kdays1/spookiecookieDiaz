@@ -62,11 +62,15 @@ const CartProvider =  ( {defaultValue = [], children} ) => {
             
     }
 
-    const clearCart = () => { setCart({}) }
+    const clearCart = () => { 
+        setCart([]) 
+        setTotal(0)
+    }
 
     const deleteItem = (itemid) => {
         const newCart = cart.filter((x) => x !== itemid);
         setCart (newCart);
+        setTotal(total - (itemid.price * itemid.quantity) );
     }
 
     const context = {
