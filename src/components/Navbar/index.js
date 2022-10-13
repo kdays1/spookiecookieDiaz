@@ -24,9 +24,6 @@ const Navbar = () => {
                         <li className="nav-item ">
                             <Nav.Link as={Link} to="/ItemsCount/02">Gorritos</Nav.Link>
                         </li>
-                        <li className="nav-item ">
-                            <Nav.Link as={Link} to="/contact">Contacto</Nav.Link>
-                        </li>
                         <li className="nav-item">
                             <Nav.Link as={Link} to="/cart"> <FaShoppingCart /> Carrito</Nav.Link>
                         </li>

@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <div>
             <section className="container"> 
-        <div className="container ">
+        <div className="container-fluid d-flex flex-row flex-wrap justify-content-center">
 
             <img className="pic" src={'../image/example1.jpg'}/>
             <img className="pic" src={'../image/example2.jpg'}/>
@@ -12,7 +12,7 @@ const Home = () => {
             <img className="pic" src={'../image/example4.jpg'}/>
 
         </div>
-        <p className="text">
+        <p className="text text-medium">
             Somos una empresa mexicana que vende ropa con magia y amor. Nuestras chamarras buscan que te sientas como una persona especial, amada y feliz. Ámate sin medidas y sé feliz con exceso.
         </p>
     </section>
@@ -23,7 +23,7 @@ const Home = () => {
             </div>
             <div className="inspo__text text">
                 <h2>Nuestra Inspiración</h2>
-                <p className="text">
+                <p className="text text-medium">
                     ¡Eres TÚ! Creemos que cada persona es un universo lleno de creatividad y queremos celebrarlo. Cada uno de nuestros productos puede ser confeccionado en el color que desees y elegir la frase que más te guste.
                 </p>
             </div>
@@ -36,7 +36,7 @@ const Home = () => {
         <img className="pic" src={'../image/example4.jpg'}/>
     </section>
 
-    <footer className="bg-light text-center text-white footer">
+    <footer className="footerColor text-center">
         <div className="p-4 pb-0">
             <section>
                 <a className="btn btn-floating m-1" href="https://www.facebook.com" role="button"> 

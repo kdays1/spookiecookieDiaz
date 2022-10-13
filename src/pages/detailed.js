@@ -32,6 +32,7 @@ function Detailed () {
     //     })
     // }
     const [product, setProduct] = useState([]);
+    const [gotoCart, setGotoCart] = useState(false);
 
     useEffect(()=>{
         chargingDB();
@@ -56,6 +57,7 @@ function Detailed () {
         function AddtoCart (itemid, counter) 
         {
             addItem(itemid, counter);
+            setGotoCart(true);
         }
 
     //LOGICA CONTADOR
@@ -88,21 +90,23 @@ function Detailed () {
                             <h2 className="card-text text-small">{product.title}</h2>
                             <div className="d-flex flex-wrap justify-content-around align-items-center">
                             <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl} alt="Producto de SpookieCookie"/></button>
-                            <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl} alt="Producto de SpookieCookie"/></button>
-                            <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl} alt="Producto de SpookieCookie"/></button>
-                            <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl} alt="Producto de SpookieCookie"/></button>
+                            <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl1} alt="Producto de SpookieCookie"/></button>
+                            <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl2} alt="Producto de SpookieCookie"/></button>
+                            <button className="colored"><img className="picDeatils card-img-top colors mx-auto d-block" src={product.pictureUrl3} alt="Producto de SpookieCookie"/></button>
                             </div>
                             
                                 <div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
                                 <CounterContainer product={product} ItemCount={ItemCount} counter={counter} stock={stock}/>
                                 </div>
-                            {counter >=1 && (<div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
-                                    {/* <Link to={'/cart'}><button onClick={() => AddtoCart(key.title)}>Agregar al carrito</button></Link>    */}
+                            <div className="d-flex flex-wrap flex-column justify-content-around align-items-center">
+                            {counter >=1 && !gotoCart && (
                                     <button onClick={() => AddtoCart(product, counter)}>Agregar al carrito</button>
-                                    {/* <button onClick={() => setgoBack(0)}>Continuar Comprando</button> */}
-                                </div>)
+                                )
                             }
-
+                            {gotoCart && (
+                                <Link to={'/cart'}>Ver mi carrito</Link>
+                            )}
+                            </div>
                             {/* <strong>CARRITO: </strong> {cart} <strong> CANTIDAD:</strong> {quantity} */}
                         </div>
                     </div>

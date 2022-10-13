@@ -10,17 +10,24 @@ function BuyForm ({sendOrder}) {
     return(
         <>
         <form>
-            <label>Enter your name:
-            <input type='text' value={user} onChange={(e) => setUser(e.target.value)}></input>
-            </label>
+            <p>
+                <label className="text text-medium">Ingresa tu nombre: 
+                <input type='text' value={user} onChange={(e) => setUser(e.target.value)}></input>
+                </label>
+                </p>
 
-            <label>Enter your number:
-            <input type='text' value={number} onChange={(d) => setNumber(d.target.value)}></input>
-            </label>
+            <p>
+                <label className="text text-medium">Ingresa tu número: 
+                <input type='text' value={number} onChange={(d) => setNumber(d.target.value)}></input>
+                </label>
+            </p>
 
-            <label>Enter your e-mail:
-            <input type='text' value={mail} onChange={(h) => setMail(h.target.value)}></input>
-            </label>
+            <p>
+                <label className="text text-medium">Ingresa tu correo: 
+                <input type='text' value={mail} onChange={(h) => setMail(h.target.value)}></input>
+                </label>
+            </p>
+
         </form>
         <button onClick={() => sendOrder(user, number, mail)}>Enviar Orden</button>
         </>

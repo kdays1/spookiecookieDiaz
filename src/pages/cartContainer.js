@@ -74,33 +74,37 @@ const CartContainer = () => {
         <section>
             {cart.length == 0 && (
                 <div>
-                    <p>Parece que aún no agregas productos al carrito</p>
+                    <p className="text text-medium">Parece que aún no agregas productos al carrito</p>
                     <Link to={'/ItemsCount'}>Visita la página de productos</Link>
                 </div>
             )}
             {cart.length != 0 && !isBuying && (
                 <section>
-                    <h3>Estos son tus productos : </h3>
+                    <h3 className='text text-medium'>Estos son tus productos : </h3>
                 <table>
                 <tr>
-                    <p><strong>Chamarras : </strong></p>
+                    {cart.filter((list) => list.categoryId === '01').length != 0 && (
+                        <p className='text text-medium'><strong>Chamarras : </strong></p>
+                    )}
                     {cart.filter((list) => list.categoryId === '01').map((key) => <th key={key.title}>
-                        <div className="card rectangle" >  
-                            <img className="card-img-top colors mx-auto d-block rectangle-up" src={key.pictureUrl} alt="producto en SpookieCookie"/>
+                        <div className="card rectangle colored" >  
+                            <img className="card-img-top colors mx-auto d-block" src={key.pictureUrl} alt="producto en SpookieCookie"/>
                             <div className="card-body">
                                 <p className="card-text text-small">{key.title}</p>
                             </div>
                             <p>Precio: ${key.price}</p>   
                             <p>Cantidad: {key.quantity}</p>
+                            <button onClick={() => RemoveFromCart(key)}>Eliminar</button>
                         </div>
-                        <button class="rectangle" onClick={() => RemoveFromCart(key)}>Eliminar</button>
                     </th>)}
                 </tr>
                 <tr>
-                    <p><strong>Gorritos :</strong> </p>
+                {cart.filter((list) => list.categoryId === '02').length != 0 && (
+                        <p className='text text-medium'><strong>Gorritos : </strong></p>
+                    )}
                     {cart.filter((list) => list.categoryId === '02').map((key) => <th key={key.title}>
-                        <div className="card rectangle" >  
-                            <img className="card-img-top colors mx-auto d-block rectangle-up" src={key.pictureUrl} alt="producto en SpookieCookie"/>
+                        <div className="card rectangle colored" >  
+                            <img className="card-img-top colors mx-auto d-block" src={key.pictureUrl} alt="producto en SpookieCookie"/>
                             <div className="card-body">
                                 <p className="card-text text-small">{key.title}</p>
                             </div>
@@ -119,18 +123,19 @@ const CartContainer = () => {
                     <br/></tr>
                 <tr>
                     <th>
-                        <p className="card rectangle"> <strong>Total a pagar : $ {total} </strong></p>
+                        <p className="rectangle text text-medium"> <strong>Total a pagar : $ {total} </strong></p>
                     </th>
                     <th>
-                        <button onClick={() => toBuy()}>Comprar</button>
+                        <button className="rectangle" onClick={() => toBuy()}>Comprar</button>
                     </th>
                     <th>
                         {/* <button onClick={() => updateOrder(cart)}>Actualizar Compra</button> */}
+                        <button className="rectangle" onClick={() => RemoveAllCart()}>Eliminar Todo</button>
                     </th>
                 </tr>
                 <tr><br/></tr>
                 <tr>
-                    <button onClick={() => RemoveAllCart()}>Eliminar Todo</button>
+                    {/* <button className="rectangle" onClick={() => RemoveAllCart()}>Eliminar Todo</button> */}
                 </tr>
             </table>
 
@@ -140,10 +145,10 @@ const CartContainer = () => {
             )}
             { isBuying && !alreadyBuy && <BuyForm sendOrder={sendOrder}/>}
             {alreadyBuy &&
-            <section>
-                Gracias por comprar con nosotros, {actualUser}
+            <section className="text text-medium">
+                Gracias por comprar con nosotros, <strong>{actualUser}</strong>
                 <br/>
-                Tu número de orden es: {id}
+                Tu número de orden es: <strong>{id}</strong>
             </section>
             }
         </section>
